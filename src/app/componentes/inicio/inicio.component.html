@@ -1,0 +1,47 @@
+<body>
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid" style="background-color: rgb(194, 191, 191)">
+            <a class="navbar-brand">Bienvenid@</a>
+            <form class="d-flex">
+                <input class="form-control me-2" type="text" placeholder="Buscar Empleado" name="nombre" #nombre="ngModel" [(ngModel)]="nombreBuscar.username" [(ngModel)]="nombreBuscar.puesto" [(ngModel)]="nombreBuscar.departamento">
+                <button class="btn btn-outline-success" type="submit" (click)="obtenerGeneral()">Search</button>
+            </form>
+        </div>
+    </nav>
+
+
+    <br>
+    <h1>¡¡Bienvenido a la aplicación <b>Control de Empresas!!</b></h1>
+    <br>
+    <h4>¿Necesitas llevar una gestion correcta sobre tu empresa?</h4>
+    <h5>Gracias a <b>Control de Empresas puedes</b> llevar control sobre tus empleados y ventas de productos.</h5>
+    <br>
+
+    <div class="card-group">
+        <div class="card">
+            <img src="/assets/empresa.jpg" class="card-img-top" alt="">
+            <div class="card-body">
+                <p class="card-title"><b>Lleva control sobre ventas de productos</b></p>
+                <p class="card-text">Puedes buscar tus productos mas vendidos gracias a graficas diseñadas para ello.</p>
+
+            </div>
+        </div>
+        <div class="card">
+            <img src="/assets/control.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-title"><b>Controla a tus empleados de manera segura</b></p>
+                <p class="card-text">Gracias a esta aplicación puedes agregar, eliminar, editar y buscar a los empleados que desees. </p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="/assets/empleados.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-title"><b>Controla tus productos y sus proveedores</b></p>
+                <p class="card-text">Puedes tener control total de los productos de tu empresa al igual que sus ventas y proveedores.</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>

@@ -1,0 +1,121 @@
+<button type="submit" type="reset" class="btn btn-primary" routerLink="/inicio" routerLinkActive="active">Regresar</button>
+
+<br>
+<br>
+<div class="container">
+    <div id="pdfTable" #pdfTable>
+        <h2>Registro sobre empleados de la empresa</h2>
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">puesto</th>
+                    <th scope="col">departamento</th>
+                    <th scope="col">acciones</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let empleados of listaUsuarios">
+                    <th scope="row">{{empleados._id}}</th>
+                    <td>{{empleados.username}}</td>
+                    <td>{{empleados.puesto}}</td>
+                    <td>{{empleados.departamento}}</td>
+
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalEditar" (click)="obtenerEmpleado(empleados._id)">Editar</button>
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModalEliminar" (click)="obtenerEmpleado(empleados._id)">Eliminar</button>
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalVer" (click)="obtenerEmpleado(empleados._id)">Ver</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button class="btn btn-primary" (click)="downloadAsPDF()">Descargar PDF</button>
+</div>
+
+<!-- Modal Editar empleado -->
+<div class="modal fade" id="exampleModalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Empresa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="inputNombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioModel.username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPuesto" class="form-label">Puesto</label>
+                        <input type="text" class="form-control" id="inputPuesto" name="puesto" #puesto="ngModel" [(ngModel)]="usuarioModel.puesto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputDepartamento" class="form-label">Departamento</label>
+                        <input type="text" class="form-control" id="inputDepartamento" name="departamento" #departamento="ngModel" [(ngModel)]="usuarioModel.departamento">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="editarEmpleado()">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal ver empleado -->
+<div class="modal fade" id="exampleModalVer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ver Hotel</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="inputNombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioModel.username" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPuesto" class="form-label">Puesto</label>
+                        <input type="text" class="form-control" id="inputPuesto" name="puesto" #puesto="ngModel" [(ngModel)]="usuarioModel.puesto" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputDepartamento" class="form-label">Departamento</label>
+                        <input type="text" class="form-control" id="inputDepartamento" name="departamento" #departamento="ngModel" [(ngModel)]="usuarioModel.departamento" disabled>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Eliminar empleado-->
+<div class="modal fade" id="exampleModalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Se eliminara de forma definitiva el usuario: {{usuarioModel.username}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="eliminarEmpleado()">Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+</div>

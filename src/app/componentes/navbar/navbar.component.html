@@ -21,6 +21,12 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/empleadolista" routerLinkActive="active" *ngIf="this._empresaService.getIdentidad().rol=='ROL_EMPRESA'">Empleado Lista</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/productos" routerLinkActive="active" *ngIf="this._empresaService.getIdentidad().rol=='ROL_EMPRESA'">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/productolista" routerLinkActive="active" *ngIf="this._empresaService.getIdentidad().rol=='ROL_EMPRESA'">Producto Lista</a>
+                </li>
             </ul>
             <div class="d-flex" *ngIf="_empresaService.getIdentidad()">
                 <img *ngIf="_empresaService.getIdentidad().imagen" [src]="_empresaService.getIdentidad().imagen" class="user-image">

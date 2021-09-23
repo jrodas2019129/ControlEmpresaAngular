@@ -1,0 +1,122 @@
+<button type="submit" type="reset" class="btn btn-primary" routerLink="/inicio" routerLinkActive="active">Regresar</button>
+
+<br>
+<br>
+<div class="container">
+    <div id="pdfTable" #pdfTable>
+        <h2>Registro sobre productos de la empresa</h2>
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Proveedor</th>
+                    <th scope="col">Cantidad Producto</th>
+                    <th scope="col">Total Vendido</th>
+                    <th scope="col">Acciones</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let productos of listaProducto">
+                    <th scope="row">{{productos._id}}</th>
+                    <td>{{productos.nombre}}</td>
+                    <td>{{productos.nombreProveedor}}</td>
+                    <td>{{productos.stock}}</td>
+                    <td>{{productos.cantidadVendida}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalEditar" (click)="obtenerProducto(productos._id)">Editar</button>
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModalEliminar" (click)="obtenerProducto(productos._id)">Eliminar</button>
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalVer" (click)="obtenerProducto(productos._id)">Ver</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal Editar empleado -->
+<div class="modal fade" id="exampleModalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="inputNombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel" [(ngModel)]="productoModel.nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPuesto" class="form-label">Proveedor</label>
+                        <input type="text" class="form-control" id="inputPuesto" name="puesto" #puesto="ngModel" [(ngModel)]="productoModel.nombreProveedor">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputDepartamento" class="form-label">Cantidad Producto</label>
+                        <input type="text" class="form-control" id="inputDepartamento" name="departamento" #departamento="ngModel" [(ngModel)]="productoModel.stock">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="editarProducto()">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal ver empleado -->
+<div class="modal fade" id="exampleModalVer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ver Hotel</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="inputNombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel" [(ngModel)]="productoModel.nombre" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPuesto" class="form-label">Proveedor</label>
+                        <input type="text" class="form-control" id="inputPuesto" name="puesto" #puesto="ngModel" [(ngModel)]="productoModel.nombreProveedor" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputDepartamento" class="form-label">Cantidad producto</label>
+                        <input type="text" class="form-control" id="inputDepartamento" name="departamento" #departamento="ngModel" [(ngModel)]="productoModel.stock" disabled>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Eliminar empleado-->
+<div class="modal fade" id="exampleModalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Se eliminara de forma definitiva el producto: {{productoModel.nombre}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="eliminarProducto()">Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+</div>

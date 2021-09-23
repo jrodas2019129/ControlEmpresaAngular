@@ -6,6 +6,8 @@ import { EmpleadoslitaComponent } from './componentes/empleadoslita/empleadoslit
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { NewEmpresaComponent } from './componentes/new-empresa/new-empresa.component';
+import { ProductosComponent } from './componentes/productos/productos.component';
+import { ProductoslistaComponent } from './componentes/productoslista/productoslista.component';
 import { RegistrarComponent } from './componentes/registrar/registrar.component';
 
 const routes: Routes = [
@@ -16,6 +18,8 @@ const routes: Routes = [
   {path: "empleadolista", component: EmpleadoslitaComponent},
   {path: "inicio", component: InicioComponent},
   {path: "empleadoEncontrado", component: EmpleadoencontradoComponent},
+  {path: "productos", component: ProductosComponent},
+  {path: "productolista",component: ProductoslistaComponent},
   {path: "**", component: LoginComponent}
 
 ];

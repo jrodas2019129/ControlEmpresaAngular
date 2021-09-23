@@ -26,35 +26,24 @@ export class EmpleadosComponent implements OnInit {
   registroEmpleado(){
     this._empleadoService.registroEmpleado(this.modeloAgregarUsuario,this.token).subscribe(
       response=>{
-        console.log(response)
         this.empleado = response.adminoEncontrado;
+        console.log(response)
         Swal.fire({
-          title: 'Liga creada correctamente',
-          width: 600,
-          padding: '3em',
-          background: '#fff url(/images/trees.png)',
-          backdrop: `
-            rgba(0,0,123,0.4)
-            url("/images/nyan-cat.gif")
-            left top
-            no-repeat
-          `
+          position: 'top-end',
+          icon: 'success',
+          title: 'Empleado creado correctamente',
+          showConfirmButton: false,
+          timer: 1500
         })
         //this._router.navigate(["/login"]);
       },
       error=>{
         console.log(<any>error);
         Swal.fire({
-          title: 'Empleado existente',
-          width: 600,
-          padding: '3em',
-          background: '#fff url(/images/trees.png)',
-          backdrop: `
-            rgba(0,0,123,0.4)
-            url("/images/nyan-cat.gif")
-            left top
-            no-repeat
-          `
+          icon: 'error',
+          title: 'Error...',
+          text: 'Empleado existente o faltan datos',
+      
         })
       }
     )

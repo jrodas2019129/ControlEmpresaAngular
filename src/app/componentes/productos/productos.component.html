@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<div class="container" class="bg-primary">
+    <div class="row justify-content-md-center" class="bg-primary">
+        <div class="col col-lg-5">
+            <form class="box">
+                <div class="mb-3">
+                    <h1>Ingresar Productos</h1>
+                    <img class="avatar" src="assets/login.png">
+                    <input type="username" class="form-control" id="exampleInputUsername1" aria-describedby="nombre" name="nombre" #nombre="ngModel" [(ngModel)]="modeloAgregarProducto.nombre">
+                    <div id="emailHelp" class="texto">Ingresa Nombre de Producto</div>
+                </div>
+                <div class="mb-3">
+                    <input type="puesto" class="form-control" id="exampleInputPuesto1" aria-describedby="puesto" name="puesto" #puesto="ngModel" [(ngModel)]="modeloAgregarProducto.nombreProveedor">
+                    <div id="emailHelp" class="texto">Ingresa su Proveedor</div>
+                </div>
+                <div class="mb-3">
+                    <input type="departamento" class="form-control" id="exampleInputDepertamento1" aria-describedby="departamento" name="departamento" #departamento="ngModel" [(ngModel)]="modeloAgregarProducto.stock">
+                    <div id="emailHelp" class="texto">Ingresa su Cantidad</div>
+                </div>
+                <header><button type="submit" class="btn btn-primary" (click)="registrProducto()">Guardar</button></header>
+            </form>
+        </div>
+    </div>
+</div>
+
+</html>

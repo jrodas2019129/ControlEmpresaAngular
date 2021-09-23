@@ -30,32 +30,20 @@ export class RegistrarComponent implements OnInit {
       response=> {
         console.log(response)
         Swal.fire({
+          position: 'top-end',
+          icon: 'success',
           title: 'Empresa creada correctamente',
-          width: 600,
-          padding: '3em',
-          background: '#fff url(/images/trees.png)',
-          backdrop: `
-            rgba(0,0,123,0.4)
-            url("/images/nyan-cat.gif")
-            left top
-            no-repeat
-          `
+          showConfirmButton: false,
+          timer: 1500
         })
-        this._router.navigate(["/login"]);
       },
       error=>{
         console.log(<any>error);
         Swal.fire({
-          title: 'Esta empresa ya existe',
-          width: 600,
-          padding: '3em',
-          background: '#fff url(/images/trees.png)',
-          backdrop: `
-            rgba(0,0,123,0.4)
-            url("/images/nyan-cat.gif")
-            left top
-            no-repeat
-          `
+          icon: 'error',
+          title: 'Error...',
+          text: 'Empresa existente o faltan datos',
+      
         })
       }
     )

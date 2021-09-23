@@ -2,11 +2,12 @@ body {
     font-family: 'Open Sans', sans-serif;
     line-height: 22px;
     color: #fafafa;
-    font-size: 300;
+    font-size: 200;
     font-weight: normal;
     overflow-x: hidden;
 }
 
+p,
 h1,
 h2,
 h3,
@@ -19,12 +20,12 @@ h6 {
     padding: 0 0 10px 0;
     font-weight: normal;
     line-height: normal;
-    color: #111111;
+    color: #fafafa;
     margin: 0
 }
 
 h1 {
-    font-size: 24px
+    font-size: 34px
 }
 
 h2 {
@@ -32,7 +33,7 @@ h2 {
 }
 
 h3 {
-    font-size: 18px
+    font-size: 1px
 }
 
 h4 {
@@ -123,13 +124,6 @@ img {
 blockquote {
     margin: 20px 0 20px;
     padding: 30px;
-}
-
-button {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
 }
 
 .full {
@@ -331,10 +325,10 @@ top banner area
 }
 
 .banner-slider {
-    margin-top: 30px;
+    margin-top: 10px;
     background-image: url(/../assets/banner_bg.png);
-    width: 100%;
-    min-height: 815px;
+    width: 90%;
+    min-height: 750px;
     background-size: cover;
 }
 
@@ -409,25 +403,6 @@ top banner area
 
 .slider_cont_section p {
     margin-bottom: 60px;
-}
-
-.button_section a {
-    width: 180px;
-    height: 55px;
-    float: left;
-    background: #000;
-    text-align: center;
-    line-height: 55px;
-    color: #fff;
-    margin-right: 30px;
-    font-weight: 300;
-    font-size: 16px;
-}
-
-.button_section a:hover,
-.button_section a:focus {
-    background: #ff0000 !important;
-    color: #fff;
 }
 
 .orange_color {

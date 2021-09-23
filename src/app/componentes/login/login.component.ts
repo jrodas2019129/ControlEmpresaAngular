@@ -43,13 +43,11 @@ export class LoginComponent implements OnInit {
         this.obtenerToken();
         console.log(this.identidad.rol);
         Swal.fire({
-          title: 'Ingresaste correctamente',
-          showClass: {
-            popup: 'animate__animated animate__fadeInDown'
-          },
-          hideClass: {
-            popup: 'animate__animated animate__fadeOutUp'
-          }
+          position: 'top-end',
+          icon: 'success',
+          title: 'Haz ingresado correctamente',
+          showConfirmButton: false,
+          timer: 1500
         })
 
         if(this.identidad.rol==="ROL_EMPRESA"){
@@ -66,11 +64,10 @@ export class LoginComponent implements OnInit {
 
       },error => {
         Swal.fire({
-          position: 'top-end',
           icon: 'error',
-          title: 'Usuario no identificado',
-          showConfirmButton: false,
-          timer: 1300
+          title: 'Error...',
+          text: 'Ups, no haz podido acceder',
+      
         })
         console.log(<any>error)
       }

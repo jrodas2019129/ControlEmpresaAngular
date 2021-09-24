@@ -45,7 +45,7 @@
             <label for="inputHabitacion" class="texto">Producto</label>
             <select type="administradors" class="form-select" name="administrador" #administrador="ngModel" [(ngModel)]="productoModel._id">
         <option selected=""></option>  
-        <option *ngFor="let productos of listaProducto" value="{{productos._id}} order by: {{productos.stock}}">{{productos.nombre}}</option>
+        <option *ngFor="let productos of listaProducto" value="{{productos._id}}">{{productos.nombre}}</option>
     </select>
             <br>
         </div>

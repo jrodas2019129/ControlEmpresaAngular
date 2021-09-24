@@ -50,10 +50,9 @@ export class EmpresaService {
     return this._http.put(this.url + "editarEmpresa", params , {headers: headersToken})
   }
 
-  eliminarEmpresa(empresa: Empresa, token: any): Observable<any>{
+  eliminarEmpresa(empresa: any): Observable<any>{
     let params = JSON.stringify(empresa);
-    let headersToken = this.headersVariable.set("Authorization", token);
-    return this._http.delete(this.url + "eliminarEmpresa", {headers: headersToken})
+    return this._http.post(this.url + "eliminarEmpresa", params, {headers: this.headersVariable})
   }
   getIdentidad(){
     var identidad2 = JSON.parse(localStorage.getItem("identidad") ||"{}");

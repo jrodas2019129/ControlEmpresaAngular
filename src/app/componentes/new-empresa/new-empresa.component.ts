@@ -15,12 +15,14 @@ export class NewEmpresaComponent implements OnInit {
   public empresaLista: any;
   public idEmpresas =  ''
   public empleados: any;
+  public eliminar: any;
 
   constructor(
     private _empresaService: EmpresaService,
 
   ) { this.token = this._empresaService.getToken();
-    this.modeloEmpresa = new Empresa("","","","","")
+    this.modeloEmpresa = new Empresa("","","","","");
+    this.eliminar = {username: ''}
   }
 
   ngOnInit(): void {
@@ -66,8 +68,9 @@ export class NewEmpresaComponent implements OnInit {
 
     })
   }
-  eliminarEmpresa(){
-   this._empresaService.eliminarEmpresa(this.modeloEmpresa, this.token).subscribe(
+  eliminarEmpresa(username){
+    this.eliminar.username = username;
+   this._empresaService.eliminarEmpresa(this.eliminar).subscribe(
      response => {
        console.log(response)
        this.obtenerEmpresas();

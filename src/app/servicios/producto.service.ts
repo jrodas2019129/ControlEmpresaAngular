@@ -40,12 +40,14 @@ export class ProductosService {
     return this._http.put(this.url + "editarProducto", params , {headers: headersToken})
   }
 
-  eliminarProducto(producto: Producto, token: any): Observable<any>{
+  eliminarProducto(producto: any): Observable<any>{
     let params = JSON.stringify(producto);
-    let headersToken = this.headersVariable.set("Authorization", token);
-    return this._http.delete(this.url + "eliminarProducto", {headers: headersToken})
+    return this._http.post(this.url + "eliminarProductoNombre", params, {headers: this.headersVariable})
   }
-
+  ventaProducto(producto: any): Observable<any>{
+    let params = JSON.stringify(producto);
+    return this._http.post(this.url + "ventaProductos", params , {headers: this.headersVariable})
+  }
   getToken(){
     var token2 = localStorage.getItem("token");
     if(token2 != "undefined"){

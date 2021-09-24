@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Producto } from 'src/app/modelos/producto.model';
 import { EmpresaService } from 'src/app/servicios/empresa.service';
 import { ProductosService } from 'src/app/servicios/producto.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-productoslista',
@@ -13,14 +14,17 @@ import { ProductosService } from 'src/app/servicios/producto.service';
 export class ProductoslistaComponent implements OnInit {
   public token: String;
   public idEmpleados =  ''
-  public productoModel: Producto;
+  public productoModel: any;
+  public eliminar: any;
   public listaProducto: any;
   public empleados: any;
+
 
   constructor(public _productosService: ProductosService, private _empresaService: EmpresaService,
     private _router: Router) {
     this.token = this._empresaService.getToken();
-    this.productoModel = new Producto("","","","","","");
+    this.productoModel = {_id: '', cantidadVendida: 0};
+    this.eliminar = {nombre: ''}
    }
   ngOnInit(): void {
     this.mostrarProductos();
@@ -67,8 +71,9 @@ obtenerProducto(_id: any){
 
     })
   }
-  eliminarProducto(){
-   this._productosService.eliminarProducto(this.productoModel, this.token).subscribe(
+  eliminarProducto(nombre){
+    this.eliminar.nombre = nombre;
+   this._productosService.eliminarProducto(this.eliminar).subscribe(
      response => {
        console.log(response)
        this.verProductos();
@@ -76,5 +81,43 @@ obtenerProducto(_id: any){
    )
 
   }
-
+  
+  ventaProducto(){
+    this._productosService.ventaProducto(this.productoModel).subscribe(
+      response=>{
+        this.empleados = response.productoEditado;
+        if(response.productoEditado){
+        console.log(response)
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Venta realizada correctamente',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        this.mostrarProductos();
+        this.verProductos();
+      }else{
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'No hay suficiente stock del producto',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+      },
+      error=>{
+        console.log(error.err);
+        if(error.err){
+        Swal.fire({
+          icon: 'error',
+          title: 'Error...',
+          text: 'No hay sufiente producto o faltan datos',
+      
+        })
+      }
+      }
+    )
+  }
 }

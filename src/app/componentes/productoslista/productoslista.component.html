@@ -1,3 +1,4 @@
+<br>
 <button type="submit" type="reset" class="btn btn-primary" routerLink="/inicio" routerLinkActive="active">Regresar</button>
 
 <br>
@@ -36,6 +37,28 @@
         </table>
     </div>
 </div>
+
+<div class="container">
+
+    <form class="box">
+        <div class="col-md-3">
+            <label for="inputHabitacion" class="texto">Producto</label>
+            <select type="administradors" class="form-select" name="administrador" #administrador="ngModel" [(ngModel)]="productoModel._id">
+        <option selected=""></option>  
+        <option *ngFor="let productos of listaProducto" value="{{productos._id}} order by: {{productos.stock}}">{{productos.nombre}}</option>
+    </select>
+            <br>
+        </div>
+        <div id="emailHelp" class="texto">Ingresa su Cantidad</div>
+        <div class="col-lg-3">
+            <input type="departamento" class="form-control" id="exampleInputDepertamento1" aria-describedby="departamento" name="departamento" #departamento="ngModel" [(ngModel)]="productoModel.cantidadVendida">
+
+        </div>
+        <br>
+        <header><button type="submit" class="btn btn-primary" (click)="ventaProducto()">Vender</button></header>
+    </form>
+</div>
+
 
 <!-- Modal Editar empleado -->
 <div class="modal fade" id="exampleModalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -114,7 +137,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="eliminarProducto()">Eliminar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="eliminarProducto(productoModel.nombre)">Eliminar</button>
             </div>
         </div>
     </div>

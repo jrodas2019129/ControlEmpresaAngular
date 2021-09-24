@@ -18,7 +18,7 @@ export class ProductosComponent implements OnInit {
 
   constructor(public _empresaService: EmpresaService, public _productoService: ProductosService) {
     this.token = this._empresaService.getToken();
-      this.modeloAgregarProducto = new Producto("","","","","","")
+      this.modeloAgregarProducto = new Producto("","","",0,0,"")
     }
   ngOnInit(): void {
   }

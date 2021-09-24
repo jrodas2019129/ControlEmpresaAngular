@@ -14,6 +14,7 @@ export class NewEmpresaComponent implements OnInit {
   public token: string;
   public empresaLista: any;
   public idEmpresas =  ''
+  public empleados: any;
 
   constructor(
     private _empresaService: EmpresaService,
@@ -24,6 +25,7 @@ export class NewEmpresaComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerEmpresas()
+    this.mostrarProductos();
 
   }
   obtenerEmpresas(){
@@ -45,6 +47,17 @@ export class NewEmpresaComponent implements OnInit {
     })
 
   }
+  mostrarProductos(){
+    this._empresaService.obtenerEmpresas(this.token).subscribe(
+      response=>{
+        console.log(response)
+        this.empleados=response.productoEncontradas;
+      },
+      error=>{
+        console.log(<any>error)
+      }
+    )
+}
   editarEmpresa(){
     this._empresaService.editarEmpresa(this.modeloEmpresa, this.token).subscribe(
      response => {

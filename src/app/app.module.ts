@@ -17,6 +17,7 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
 import { EmpleadoencontradoComponent } from './componentes/empleadoencontrado/empleadoencontrado.component';
 import { ProductosComponent } from './componentes/productos/productos.component';
 import { ProductoslistaComponent } from './componentes/productoslista/productoslista.component';
+import { ProductoencontradoComponent } from './componentes/productoencontrado/productoencontrado.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ProductoslistaComponent } from './componentes/productoslista/productosl
     EmpleadoencontradoComponent,
     ProductosComponent,
     ProductoslistaComponent,
+    ProductoencontradoComponent,
   ],
   imports: [
     BrowserModule,

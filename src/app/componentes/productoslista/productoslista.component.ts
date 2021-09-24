@@ -23,7 +23,7 @@ export class ProductoslistaComponent implements OnInit {
   constructor(public _productosService: ProductosService, private _empresaService: EmpresaService,
     private _router: Router) {
     this.token = this._empresaService.getToken();
-    this.productoModel = {_id: '', cantidadVendida: 0};
+    this.productoModel = {_id: '', cantidadVendida: 0, stock: 0};
     this.eliminar = {nombre: ''}
    }
   ngOnInit(): void {
@@ -106,6 +106,35 @@ obtenerProducto(_id: any){
           timer: 1500
         })
       }
+      },
+      error=>{
+        console.log(error.err);
+        if(error.err){
+        Swal.fire({
+          icon: 'error',
+          title: 'Error...',
+          text: 'No hay sufiente producto o faltan datos',
+      
+        })
+      }
+      }
+    )
+  }
+  aumentoProducto(){
+    this._productosService.AumentoProducto(this.productoModel).subscribe(
+      response=>{
+        this.empleados = response.productoEditado;
+        console.log(response)
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Venta realizada correctamente',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        this.mostrarProductos();
+        this.verProductos();
+      
       },
       error=>{
         console.log(error.err);

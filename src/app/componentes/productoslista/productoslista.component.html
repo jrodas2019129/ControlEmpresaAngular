@@ -37,7 +37,6 @@
         </table>
     </div>
 </div>
-
 <div class="container">
 
     <form class="box">
@@ -60,6 +59,27 @@
 </div>
 
 
+
+<div class="container">
+    <form class="box">
+        <!-- <div class="col-md-3">
+            <label for="inputHabi" class="texto">Producto</label>
+            <select type="admin" class="form-select" name="admin" #admin="ngModel" [(ngModel)]="productoModel._id">
+        <option selected=""></option>  
+        <option *ngFor="let producto of listaProducto" value="{{producto._id}}">{{producto.nombre}}</option>
+    </select>
+            <br>
+        </div>-->
+        <div id="emailHelp" class="texto">Ingresa su Cantidad</div>
+        <div class="col-lg-3">
+            <input type="departamento" class="form-control" id="exampleInputDepertamento1" aria-describedby="departamento" name="departamento" #departamento="ngModel" [(ngModel)]="productoModel.stock">
+        </div>
+        <br>
+        <header><button type="submit" class="btn btn-primary" (click)="aumentoProducto()">Agregar </button></header>
+    </form>
+</div>
+
+
 <!-- Modal Editar empleado -->
 <div class="modal fade" id="exampleModalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -78,10 +98,7 @@
                         <label for="inputPuesto" class="form-label">Proveedor</label>
                         <input type="text" class="form-control" id="inputPuesto" name="puesto" #puesto="ngModel" [(ngModel)]="productoModel.nombreProveedor">
                     </div>
-                    <div class="mb-3">
-                        <label for="inputDepartamento" class="form-label">Cantidad Producto</label>
-                        <input type="text" class="form-control" id="inputDepartamento" name="departamento" #departamento="ngModel" [(ngModel)]="productoModel.stock">
-                    </div>
+
 
                 </form>
             </div>

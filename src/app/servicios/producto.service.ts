@@ -48,6 +48,10 @@ export class ProductosService {
     let params = JSON.stringify(producto);
     return this._http.post(this.url + "ventaProductos", params , {headers: this.headersVariable})
   }
+  AumentoProducto(producto: any): Observable<any>{
+    let params = JSON.stringify(producto);
+    return this._http.post(this.url + "aumentarProductos", params , {headers: this.headersVariable})
+  }
   getToken(){
     var token2 = localStorage.getItem("token");
     if(token2 != "undefined"){

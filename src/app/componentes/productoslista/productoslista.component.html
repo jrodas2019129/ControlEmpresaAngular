@@ -23,8 +23,8 @@
                     <th scope="col">Cantidad Producto</th>
                     <th scope="col">Total Vendido</th>
                     <th scope="col">Acciones</th>
-                    <th button type="submit" type="reset" class="btn btn-primary" routerLink="/Mayorstock" routerLinkActive="active">Mayor</th>
-                    <th button type="submit" type="reset" class="btn btn-primary" routerLink="/Menorstock" routerLinkActive="active">Menor</th>
+                    <th button type="submit" type="reset" class="btn btn-primary" (click)="obtenerProductosCantidadMayor()">Mayor</th>
+                    <th button type="submit" type="reset" class="btn btn-primary" (click)="obtenerProductosCantidadMenor()">Menor</th>
 
                 </tr>
             </thead>

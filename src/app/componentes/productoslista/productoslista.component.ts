@@ -171,4 +171,26 @@ obtenerProducto(_id: any){
       }
     )
   }
+
+  obtenerProductosCantidadMayor(){
+    this._productosService.obtenerProductosCantidadMayor().subscribe(
+      response=>{
+        this.listaProducto = response.productoEncontrado;
+        console.log(response.productoEncontrado)
+      },
+      error=>{
+    }
+    )
+  }
+
+  obtenerProductosCantidadMenor(){
+    this._productosService.obtenerProductosCantidadMenor().subscribe(
+      response=>{
+        this.listaProducto = response.productoEncontrado;
+        console.log(response.productoEncontrado)
+      },
+      error=>{
+    }
+    )
+  }
 }

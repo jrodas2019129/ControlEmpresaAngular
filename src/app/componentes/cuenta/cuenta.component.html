@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta</title>
+</head>
+
+<body>
+    <header>
+        <div class="miembros">
+            <div class="contenedor2">
+                <br>
+
+                <h1 class="lines-effect">Bienvenido {{ identidad.username }}</h1>
+            </div>
+            <div class="portfoliocard">
+                <div class="coverphoto"></div>
+                <div class="profile_picture"></div>
+                <div class="left_col">
+                </div>
+                <div class="">
+                    <div class="d-flex" *ngIf="_empresaService.getIdentidad()">
+                        <img *ngIf="_empresaService.getIdentidad().imagen" [src]="this.url + 'obtenerImagen/' +_empresaService.getIdentidad().imagen" class="user-image">
+                        <img class="nav-link" routerLink="/cuenta" routerLinkActive="active" *ngIf="_empresaService.getIdentidad().imagen == null && this._empresaService.getIdentidad().username!=undefined" src="/assets/man.png" class="user-image">
+                    </div>
+                    <h2 class="name">{{ identidad.username }}</h2>
+                </div>
+            </div>
+            <div class="container">
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Edita tu fotografía</label>
+                    <div class="form-group col-md-4 ">
+                        <input class="form-control me-2" (change)="inputEvento($event)" type="file" id="formFile">
+                    </div><br>
+                    <button class="btn btn-primary" (click)="subirImagen()">Subir Imagen</button>
+                </div>
+            </div>
+
+        </div>

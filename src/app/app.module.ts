@@ -22,6 +22,7 @@ import { MayorstockComponent } from './componentes/mayorstock/mayorstock.compone
 import { MenorstockComponent } from './componentes/menorstock/menorstock.component';
 import { GraficasComponent } from './componentes/graficas/graficas.component';
 import { ChartsModule } from '@rinminase/ng-charts';
+import { CuentaComponent } from './componentes/cuenta/cuenta.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ChartsModule } from '@rinminase/ng-charts';
     ProductoencontradoComponent,
     MayorstockComponent,
     MenorstockComponent,
-GraficasComponent
+GraficasComponent,
+CuentaComponent
   ],
   imports: [
     BrowserModule,

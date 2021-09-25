@@ -32,9 +32,10 @@
                 </li>
             </ul>
             <div class="d-flex" *ngIf="_empresaService.getIdentidad()">
-                <img *ngIf="_empresaService.getIdentidad().imagen" [src]="_empresaService.getIdentidad().imagen" class="user-image">
-                <img *ngIf="_empresaService.getIdentidad().imagen === null" src="/assets/man.png" class="user-image">
-                <a class="nav-link">{{ _empresaService.getIdentidad().username}}</a>
+                <img *ngIf="_empresaService.getIdentidad().imagen" [src]="this.url + 'obtenerImagen/' +_empresaService.getIdentidad().imagen" class="user-image">
+
+                <img class="nav-link" routerLink="/cuenta" routerLinkActive="active" *ngIf="_empresaService.getIdentidad().imagen === null" src="/assets/man.png" class="user-image">
+                <a class="nav-link" routerLink="/cuenta">{{ _empresaService.getIdentidad().username}}</a>
 
             </div>
             <div><img class="nav-link" routerLink="/login" routerLinkActive="active" src="/assets/logout.png" class="user-image" *ngIf="this._empresaService.getIdentidad().username!=undefined" (click)="cerrarSesion()"></div>

@@ -54,6 +54,11 @@ export class EmpresaService {
     let params = JSON.stringify(empresa);
     return this._http.post(this.url + "eliminarEmpresa", params, {headers: this.headersVariable})
   }
+
+  verCuenta() : Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', this.getToken());
+    return this._http.get(this.url + 'verCuenta', {headers: headersToken});
+   }
   getIdentidad(){
     var identidad2 = JSON.parse(localStorage.getItem("identidad") ||"{}");
     if(identidad2 != "undefined"){

@@ -5,6 +5,8 @@ import { EmpleadosComponent } from './componentes/empleados/empleados.component'
 import { EmpleadoslitaComponent } from './componentes/empleadoslita/empleadoslita.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { MayorstockComponent } from './componentes/mayorstock/mayorstock.component';
+import { MenorstockComponent } from './componentes/menorstock/menorstock.component';
 import { NewEmpresaComponent } from './componentes/new-empresa/new-empresa.component';
 import { ProductoencontradoComponent } from './componentes/productoencontrado/productoencontrado.component';
 import { ProductosComponent } from './componentes/productos/productos.component';
@@ -22,6 +24,8 @@ const routes: Routes = [
   {path: "productos", component: ProductosComponent},
   {path: "productolista",component: ProductoslistaComponent},
   {path: "productoencontrado", component: ProductoencontradoComponent},
+  {path: "Mayorstock", component: MayorstockComponent},
+  {path: "Menorstock",component: MenorstockComponent},
   {path: "**", component: LoginComponent}
 
 ];

@@ -18,6 +18,8 @@ import { EmpleadoencontradoComponent } from './componentes/empleadoencontrado/em
 import { ProductosComponent } from './componentes/productos/productos.component';
 import { ProductoslistaComponent } from './componentes/productoslista/productoslista.component';
 import { ProductoencontradoComponent } from './componentes/productoencontrado/productoencontrado.component';
+import { MayorstockComponent } from './componentes/mayorstock/mayorstock.component';
+import { MenorstockComponent } from './componentes/menorstock/menorstock.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { ProductoencontradoComponent } from './componentes/productoencontrado/pr
     ProductosComponent,
     ProductoslistaComponent,
     ProductoencontradoComponent,
+    MayorstockComponent,
+    MenorstockComponent,
   ],
   imports: [
     BrowserModule,

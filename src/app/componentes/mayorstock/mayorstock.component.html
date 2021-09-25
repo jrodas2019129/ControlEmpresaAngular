@@ -1,0 +1,30 @@
+<br>
+<button type="submit" style="margin-left:10px" type="reset" class="btn btn-primary" routerLink="/productolista" routerLinkActive="active">Regresar</button>
+
+<br>
+
+<div class="container">
+    <div id="pdfTable" #pdfTable>
+        <h2 style="margin-left:140px">Registro sobre productos de la empresa</h2>
+        <table class="table table-dark table-hover" style="margin-left:140px">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre Producto</th>
+                    <th scope="col">Proveedor</th>
+                    <th scope="col">Cantidad Producto</th>
+                    <th scope="col">Total Vendido</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let productos of listaProducto">
+                    <td>{{productos.nombre}}</td>
+                    <td>{{productos.nombreProveedor}}</td>
+                    <td>{{productos.stock}}</td>
+                    <td>{{productos.cantidadVendida}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

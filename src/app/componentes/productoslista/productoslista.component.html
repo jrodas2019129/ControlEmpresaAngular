@@ -8,28 +8,28 @@
     </div>
 </nav>
 <br>
-<button type="submit" type="reset" class="btn btn-primary" routerLink="/inicio" routerLinkActive="active">Regresar</button>
+<button type="submit" style="margin-left:10px" type="reset" class="btn btn-primary" routerLink="/inicio" routerLinkActive="active">Regresar</button>
 
 <br>
-<br>
+
 <div class="container">
     <div id="pdfTable" #pdfTable>
-        <h2>Registro sobre productos de la empresa</h2><br>
-        <table class="table table-dark table-hover">
+        <h2 style="margin-left:140px">Registro sobre productos de la empresa</h2>
+        <table class="table table-dark table-hover" style="margin-left:140px">
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
+                    <th scope="col">Nombre Producto</th>
                     <th scope="col">Proveedor</th>
                     <th scope="col">Cantidad Producto</th>
                     <th scope="col">Total Vendido</th>
                     <th scope="col">Acciones</th>
+                    <th button type="submit" type="reset" class="btn btn-primary" routerLink="/Mayorstock" routerLinkActive="active">Mayor</th>
+                    <th button type="submit" type="reset" class="btn btn-primary" routerLink="/Menorstock" routerLinkActive="active">Menor</th>
 
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let productos of listaProducto">
-                    <th scope="row">{{productos._id}}</th>
                     <td>{{productos.nombre}}</td>
                     <td>{{productos.nombreProveedor}}</td>
                     <td>{{productos.stock}}</td>
@@ -50,20 +50,20 @@
 <div class="container col-lg-6">
     <form class="box">
         <div class="col-lg-3">
-            <label for="inputHabitacion" class="texto">Producto</label>
-            <select type="administradors" class="form-select" name="administrador" #administrador="ngModel" [(ngModel)]="productoModel._id">
+            <h5 for="inputHabitacion" class="texto" style="margin-left:140px">Producto</h5>
+            <select type="administradors" class="form-select" name="administrador" style="margin-left:140px" #administrador="ngModel" [(ngModel)]="productoModel._id">
         <option selected=""></option>  
         <option *ngFor="let productos of listaProducto" value="{{productos._id}}">{{productos.nombre}}</option>
     </select>
             <br>
         </div>
-        <div id="emailHelp" class="texto">Ingresa su Cantidad</div>
+        <h5 id="emailHelp" class="texto" style="margin-left:140px">Ingresa Cantidad a Vender</h5>
         <div class="col-lg-3">
-            <input type="departamento" class="form-control" id="exampleInputDepertamento1" aria-describedby="departamento" name="departamento" #departamento="ngModel" [(ngModel)]="productoModel.cantidadVendida">
+            <input type="departamento" class="form-control" id="exampleInputDepertamento1" style="margin-left:140px" aria-describedby="departamento" name="departamento" #departamento="ngModel" [(ngModel)]="productoModel.cantidadVendida">
 
         </div>
         <br>
-        <header><button type="submit" class="btn btn-primary" (click)="ventaProducto()">Vender</button></header>
+        <header><button type="submit" class="btn btn-primary" style="margin-left:140px" (click)="ventaProducto()">Vender</button></header>
     </form>
 </div>
 
@@ -77,7 +77,7 @@
     </select>
             <br>
         </div>-->
-        <div id="emailHelp" class="texto">Ingresa su Cantidad</div>
+        <h5 id="emailHelp" class="texto">Ingresa Cantidad a Agregar</h5>
         <div class="col-lg-3">
             <input type="departamento" class="form-control" id="exampleInputDepertamento1" aria-describedby="departamento" name="departamento" #departamento="ngModel" [(ngModel)]="productoModel.stock">
         </div>

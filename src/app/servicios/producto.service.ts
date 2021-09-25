@@ -57,6 +57,17 @@ export class ProductosService {
     let headersToken = this.headersVariable.set("Authorization", token);
     return this._http.post(this.url+'obtenerGeneralProducto', params, {headers: headersToken});
   }
+
+  obtenerProductosCantidadMayor(): Observable<any>{
+    let headersToken = this.headersVariable.set("Authorization", this.token);
+    return this._http.get(this.url + "obtenerProductosCantidadMayor",  {headers: headersToken});
+
+  }
+  obtenerProductosCantidadMenor(): Observable<any>{
+    let headersToken = this.headersVariable.set("Authorization", this.token);
+    return this._http.get(this.url + "obtenerProductosCantidadMenor",  {headers: headersToken});
+
+  }
   getToken(){
     var token2 = localStorage.getItem("token");
     if(token2 != "undefined"){

@@ -1,3 +1,12 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid" style="background-color: rgb(194, 191, 191)">
+        <a class="navbar-brand">Bienvenid@</a>
+        <form class="d-flex">
+            <input class="form-control me-2" type="text" placeholder="Buscar Empleado" name="nombre" #nombre="ngModel" [(ngModel)]="nombreBuscar.nombre" [(ngModel)]="nombreBuscar.nombreProveedor">
+            <button class="btn btn-outline-success" type="submit" (click)="obtenerGeneralProducto()">Search</button>
+        </form>
+    </div>
+</nav>
 <br>
 <button type="submit" type="reset" class="btn btn-primary" routerLink="/inicio" routerLinkActive="active">Regresar</button>
 

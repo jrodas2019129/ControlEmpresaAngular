@@ -52,6 +52,11 @@ export class ProductosService {
     let params = JSON.stringify(producto);
     return this._http.post(this.url + "aumentarProductos", params , {headers: this.headersVariable})
   }
+  obtenerGeneralProducto(nombre: any, token: any): Observable<any>{
+    let params = JSON.stringify(nombre);
+    let headersToken = this.headersVariable.set("Authorization", token);
+    return this._http.post(this.url+'obtenerGeneralProducto', params, {headers: headersToken});
+  }
   getToken(){
     var token2 = localStorage.getItem("token");
     if(token2 != "undefined"){

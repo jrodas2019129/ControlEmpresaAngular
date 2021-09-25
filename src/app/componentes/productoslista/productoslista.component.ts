@@ -18,6 +18,8 @@ export class ProductoslistaComponent implements OnInit {
   public eliminar: any;
   public listaProducto: any;
   public empleados: any;
+  public nombreBuscar: any = {nombre: '', nombreProveedor: ''};
+  public empleadoSeleccionado: any;
 
 
   constructor(public _productosService: ProductosService, private _empresaService: EmpresaService,
@@ -146,6 +148,26 @@ obtenerProducto(_id: any){
       
         })
       }
+      }
+    )
+  }
+  obtenerGeneralProducto(){
+
+    this._productosService.obtenerGeneralProducto(this.nombreBuscar, this.token).subscribe(
+      response=>{
+        console.log(response);
+        this.empleadoSeleccionado=response.productoEncontrado;
+        localStorage.setItem("empleadoSeleccionado",JSON.stringify(this.empleadoSeleccionado));
+        this._router.navigate(['/productoencontrado']);
+      },
+      error=>{
+        console.log(<any>error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'No se ha encontrado la enfermedad'
+        })
+
       }
     )
   }

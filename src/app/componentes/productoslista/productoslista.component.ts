@@ -130,7 +130,7 @@ obtenerProducto(_id: any){
         Swal.fire({
           position: 'top-end',
           icon: 'success',
-          title: 'Venta realizada correctamente',
+          title: 'Se añadio correctamente',
           showConfirmButton: false,
           timer: 1500
         });

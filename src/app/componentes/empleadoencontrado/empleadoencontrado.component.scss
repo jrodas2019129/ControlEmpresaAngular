@@ -25,7 +25,13 @@ h6 {
 }
 
 h1 {
-    font-size: 34px
+    font-size: 50px;
+    font-family: 'Droid serif', serif;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 44px;
+    margin: 0 0 12px;
+    text-align: center;
 }
 
 h2 {
@@ -36,8 +42,18 @@ h3 {
     font-size: 1px
 }
 
+.h4-1 {
+    color: #eee;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0 0 14px;
+}
+
 h4 {
-    font-size: 16px
+    font-size: 16px;
+    text-align: center
 }
 
 h5 {

@@ -20,6 +20,9 @@ import { ProductoslistaComponent } from './componentes/productoslista/productosl
 import { ProductoencontradoComponent } from './componentes/productoencontrado/productoencontrado.component';
 import { MayorstockComponent } from './componentes/mayorstock/mayorstock.component';
 import { MenorstockComponent } from './componentes/menorstock/menorstock.component';
+import { GraficasComponent } from './componentes/graficas/graficas.component';
+import { ChartsModule } from '@rinminase/ng-charts';
+
 
 @NgModule({
   declarations: [
@@ -37,13 +40,15 @@ import { MenorstockComponent } from './componentes/menorstock/menorstock.compone
     ProductoencontradoComponent,
     MayorstockComponent,
     MenorstockComponent,
+GraficasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

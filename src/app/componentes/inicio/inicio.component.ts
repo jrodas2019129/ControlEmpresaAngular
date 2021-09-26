@@ -58,7 +58,7 @@ export class InicioComponent implements OnInit {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'No se ha encontrado la enfermedad'
+          text: 'No se ha encontrado el usuario'
         })
 
       }

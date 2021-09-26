@@ -6,7 +6,7 @@
             <form class="box">
                 <div class="mb-3">
                     <h1>Ingresar Empleados</h1>
-                    <img class="avatar" src="assets/login.png">
+                    <img class="avatar" src="assets/gerente.png">
                     <input type="username" class="form-control" id="exampleInputUsername1" aria-describedby="username" name="username" #username="ngModel" [(ngModel)]="modeloAgregarUsuario.username">
                     <div id="emailHelp" class="texto">Ingresa su Nombre</div>
                 </div>
@@ -18,7 +18,7 @@
                     <input type="departamento" class="form-control" id="exampleInputDepertamento1" aria-describedby="departamento" name="departamento" #departamento="ngModel" [(ngModel)]="modeloAgregarUsuario.departamento">
                     <div id="emailHelp" class="texto">Ingresa su departamento</div>
                 </div>
-                <header><button type="submit" class="btn btn-primary" (click)="registroEmpleado()">Guardar</button></header>
+                <header><button type="reset" style="margin-left:22px" class="btn btn-primary" (click)="registroEmpleado()">Guardar</button><button type="submit" type="reset" class="btn btn-primary" style="margin-left:22px" routerLink="/empleadolista" routerLinkActive="active">Ver Empleados</button></header>
             </form>
         </div>
     </div>

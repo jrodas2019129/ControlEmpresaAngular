@@ -18,9 +18,9 @@
                 </div>
                 <div class="mb-3">
                     <input type="password" class="form-control" id="exampleInputPassword1" aria-describedby="password" name="password" #password="ngModel" [(ngModel)]="modeloEmpresa.password">
-                    <div id="emailHelp" class="texto">Ingresa su Password</div>
+                    <div id="pass" class="texto">Ingresa su Password</div>
                 </div>
-                <header><button type="submit" class="btn btn-primary" style="margin-left:22px" (click)="registrar()">Crear Empresa</button><button type="submit" type="reset" class="btn btn-primary" style="margin-left:22px" routerLink="/newEmpresa" routerLinkActive="active">Modificar Empresas</button>
+                <header><button type="reset" class="btn btn-primary" style="margin-left:22px" (click)="registrar()">Crear Empresa</button><button type="submit" type="reset" class="btn btn-primary" style="margin-left:22px" routerLink="/newEmpresa" routerLinkActive="active">Ver Empresas</button>
                 </header>
             </form>
         </div>

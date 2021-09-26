@@ -1,7 +1,14 @@
-<h1 style="text-align:center"> Grafica de productos Vendidos</h1> <br>
-<div class="container">
-    <div style="display: block;">
-        <canvas baseChart chartType="pie" [data]="chartData" [colors]="chartColors" [labels]="chartLabels" [options]="chartOptions" [plugins]="chartPlugins" [legend]="chartLegend">
+<body>
+    <br>
+    <button style="margin-left:10px" type="reset" class="btn btn-primary" routerLink="/productolista" routerLinkActive="active">Regresar</button>
+
+    <br>
+    <h1 style="text-align:center"> Grafica de productos Vendidos</h1>
+    <h2 style="text-align:center"> Bienvenido {{ identidad.username }}</h2> <br>
+    <div class="portfoliocard">
+        <div style="display: block;">
+            <canvas baseChart width="400" height="180" chartType="pie" [data]="chartData" [colors]="chartColors" [labels]="chartLabels" [options]="chartOptions" [plugins]="chartPlugins" [legend]="chartLegend">
     </canvas>
+        </div>
     </div>
-</div>
+</body>

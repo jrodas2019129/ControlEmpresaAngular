@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { EmpresaService } from 'src/app/servicios/empresa.service';
 import { ProductosService } from 'src/app/servicios/producto.service';
 
 @Component({
   selector: 'app-graficas',
   templateUrl: './graficas.component.html',
   styleUrls: ['./graficas.component.scss'],
-  providers: [ProductosService]
+  providers: [ProductosService, EmpresaService]
 })
 export class GraficasComponent implements OnInit {
   public listaProducto: any;
+  public identidad;
 
   chartOptions = {
     responsive: true,
@@ -24,10 +26,13 @@ export class GraficasComponent implements OnInit {
   chartLegend = true;
   chartPlugins = [];
  
-  constructor(public _productosService: ProductosService) { }
+  constructor(public _productosService: ProductosService, public _empresaService: EmpresaService) {
+    this.identidad = this._empresaService.getIdentidad();
+   }
 
   ngOnInit(): void {
     this.verProductos()
+    this.obtenerCuenta();
   }
   verProductos(){
     this._productosService.verProductos().subscribe(
@@ -42,5 +47,15 @@ export class GraficasComponent implements OnInit {
       }
     )
   }
- 
+  obtenerCuenta(){
+    this._empresaService.verCuenta().subscribe(
+      response => {
+        this.identidad = response.empresaEncontrado;
+        console.log(response.empresaEncontrado)
+      },
+      error => {
+        console.log(<any>error);
+      }
+    )
+  }
 }

@@ -27,15 +27,11 @@
                     </div>
                     <h2 class="name">{{ identidad.username }}</h2>
                 </div>
+
+                <h6 for="formFile" class="form-label">Edita tu fotografía</h6>
+
+                <input class="form-control me-2" (change)="inputEvento($event)" type="file" id="formFile">
             </div>
-            <div class="container">
-                <div class="mb-3">
-                    <label for="formFile" class="form-label">Edita tu fotografía</label>
-                    <div class="form-group col-md-4 ">
-                        <input class="form-control me-2" (change)="inputEvento($event)" type="file" id="formFile">
-                    </div><br>
-                    <button class="btn btn-primary" (click)="subirImagen()">Subir Imagen</button>
-                </div>
-            </div>
+            <button class="btn btn-primary" (click)="subirImagen()">Subir Imagen</button>
 
         </div>

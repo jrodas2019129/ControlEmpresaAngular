@@ -39,11 +39,11 @@ export class UsuarioService {
     return this._http.put(this.url + "editarUsuario", params , {headers: headersToken})
   }
 
-  eliminarEmpleado(empresa: Usuario, token: any): Observable<any>{
-    let params = JSON.stringify(empresa);
-    let headersToken = this.headersVariable.set("Authorization", token);
-    return this._http.delete(this.url + "eliminarUsuario", {headers: headersToken})
+  eliminarEmpleado(empleado: any): Observable<any>{
+    let params = JSON.stringify(empleado);
+    return this._http.post(this.url + "eliminarUsuario", params, {headers: this.headersVariable})
   }
+
   obtenerEmpleadoNombre(nombre: any , token: any): Observable<any>{
     let params = JSON.stringify(nombre);
     let headersToken = this.headersVariable.set("Authorization", token);

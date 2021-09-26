@@ -21,6 +21,8 @@ export class EmpleadoslitaComponent implements OnInit {
   public usuarioModel: Usuario;
   public listaUsuarios: any;
   public empleados: any;
+  public eliminar: any;
+
   title = 'htmltopdf';
 
   @ViewChild('pdfTable') pdfTable: ElementRef;
@@ -41,6 +43,8 @@ export class EmpleadoslitaComponent implements OnInit {
     private _router: Router) {
     this.token = this._empresaService.getToken();
     this.usuarioModel = new Usuario("","","","","","");
+    this.eliminar = {username: ''}
+
    }
 
 
@@ -89,8 +93,10 @@ export class EmpleadoslitaComponent implements OnInit {
 
     })
   }
-  eliminarEmpleado(){
-   this._usuariosService.eliminarEmpleado(this.usuarioModel, this.token).subscribe(
+ 
+  eliminarEmpleado(username){
+    this.eliminar.username = username;
+   this._usuariosService.eliminarEmpleado(this.eliminar).subscribe(
      response => {
        console.log(response)
        this.verEmpleados();
